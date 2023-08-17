@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
         {
             inputVector.y = +1;
         }
+
         if (Input.GetKey(KeyCode.S))
         {
             inputVector.y = -1;
@@ -29,9 +30,12 @@ public class Player : MonoBehaviour
             inputVector.x = +1;
         }
 
-        Vector3 moveDir = new Vector3(inputVector.x, 0, inputVector.y);
         inputVector = inputVector.normalized;
 
+        Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
         transform.position += moveDir * m_moveSpeed * Time.deltaTime;
+
+        float rotateSpeed = 25f;
+        transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotateSpeed); 
     }
 }
