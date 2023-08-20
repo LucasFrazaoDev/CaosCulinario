@@ -6,9 +6,42 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float m_moveSpeed = 5f;
     [SerializeField] private GameInput m_gameInput;
+    [SerializeField] private LayerMask m_countersLayerMask;
+
     private bool m_isWalking = false;
+    private Vector3 m_lastInteractDir;
 
     private void Update()
+    {
+        HandleMovement();
+        HandleInteractions();
+    }
+
+    public bool IsWalking()
+    {
+        return m_isWalking;
+    }
+
+    private void HandleInteractions()
+    {
+        Vector2 inputVector = m_gameInput.GetMovementVectorNormalized();
+        Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
+
+        if (moveDir != Vector3.zero)
+            m_lastInteractDir = moveDir;
+
+        float interactDistance = 2.0f;
+        if (Physics.Raycast(transform.position, m_lastInteractDir, out RaycastHit raycastHit, interactDistance, m_countersLayerMask))
+        {
+            if (raycastHit.transform.TryGetComponent(out ClearCounter clearCounter))
+            {
+                // Has ClearCounter
+                clearCounter.Interact();
+            }
+        }
+    }
+
+    private void HandleMovement()
     {
         Vector2 inputVector = m_gameInput.GetMovementVectorNormalized();
         Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
@@ -18,14 +51,14 @@ public class Player : MonoBehaviour
         float playerHeight = 2.0f;
         bool canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDir, moveDistance);
 
-        if(!canMove)
+        if (!canMove)
         {
             // Cannot move towards moveDir
             // Attempt only X direction
             Vector3 moveDirX = new Vector3(moveDir.x, 0, 0).normalized;
             canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirX, moveDistance);
-            
-            if(canMove)
+
+            if (canMove)
             {
                 // Move only in X direction
                 moveDir = moveDirX;
@@ -55,11 +88,7 @@ public class Player : MonoBehaviour
         m_isWalking = moveDir != Vector3.zero;
 
         float rotateSpeed = 25f;
-        transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotateSpeed); 
-    }
+        transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotateSpeed);
 
-    public bool IsWalking()
-    {
-        return m_isWalking;
     }
 }
