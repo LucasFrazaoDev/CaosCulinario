@@ -5,6 +5,7 @@ using UnityEngine;
 public class ContainerCounterVisual : MonoBehaviour
 {
     [SerializeField] private ContainerCounter m_containerCounter;
+
     private Animator m_animator;
     private const string OPEN_CLOSE = "OpenClose";
 
