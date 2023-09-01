@@ -135,8 +135,11 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
         m_isWalking = moveDir != Vector3.zero;
 
-        float rotateSpeed = 25f;
-        transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotateSpeed);
+        if (m_isWalking)
+        {
+            float rotateSpeed = 25f;
+            transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotateSpeed);
+        }
 
     }
 
