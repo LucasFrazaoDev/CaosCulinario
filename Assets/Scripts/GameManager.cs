@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance {  get; private set; }
 
     public event EventHandler OnStateChanged;
+    public event EventHandler OnGamePaused;
+    public event EventHandler OnGameUnpaused;
 
     private enum State
     {
@@ -22,11 +24,22 @@ public class GameManager : MonoBehaviour
     private float m_countdownToStartTimer = 3f;
     private float m_gamePlayingTimer;
     private float m_gamePlayingTimerMax = 45f;
+    private bool m_isGamePaused = false;
 
     private void Awake()
     {
         Instance = this;
         m_state = State.WaitingToStart;
+    }
+
+    private void Start()
+    {
+        GameInput.Instance.OnPauseAction += GameInput_OnPauseAction;
+    }
+
+    private void GameInput_OnPauseAction(object sender, EventArgs e)
+    {
+        TogglePauseGame();
     }
 
     private void Update()
@@ -89,5 +102,21 @@ public class GameManager : MonoBehaviour
     public float GetGamePlayingTimerNormalized()
     {
         return 1 - (m_gamePlayingTimer / m_gamePlayingTimerMax);
+    }
+
+    public void TogglePauseGame()
+    {
+        m_isGamePaused = !m_isGamePaused;
+
+        if (m_isGamePaused)
+        {
+            Time.timeScale = 0f;
+            OnGamePaused?.Invoke(this, EventArgs.Empty);
+        }
+        else
+        {
+            Time.timeScale = 1f;
+            OnGameUnpaused?.Invoke(this, EventArgs.Empty);
+        }
     }
 }
