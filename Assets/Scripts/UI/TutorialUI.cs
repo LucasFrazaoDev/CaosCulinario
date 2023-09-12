@@ -22,7 +22,18 @@ public class TutorialUI : MonoBehaviour
     private void Start()
     {
         GameInput.Instance.OnBindingRebind += GameInput_OnBindingRebind;
+        GameManager.Instance.OnStateChanged += GameManager_OnStateChanged;
+        
         UpdateVisual();
+        Show();
+    }
+
+    private void GameManager_OnStateChanged(object sender, System.EventArgs e)
+    {
+        if (GameManager.Instance.IsCountdownToStartActive())
+        {
+            Hide();
+        }
     }
 
     private void GameInput_OnBindingRebind(object sender, System.EventArgs e)
@@ -43,5 +54,15 @@ public class TutorialUI : MonoBehaviour
         m_keyGamepadInteractText.text = GameInput.Instance.GetBindingText(GameInput.Binding.GamepadInteract);
         m_keyGamepadInteractAlternateText.text = GameInput.Instance.GetBindingText(GameInput.Binding.GamepadInteractAlternate);
         m_keyGamepadPauseText.text = GameInput.Instance.GetBindingText(GameInput.Binding.GamepadPause);
+    }
+
+    private void Show()
+    {
+        gameObject.SetActive(true);
+    }
+
+    private void Hide()
+    {
+        gameObject.SetActive(false);
     }
 }
