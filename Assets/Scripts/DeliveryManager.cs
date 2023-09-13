@@ -14,6 +14,7 @@ public class DeliveryManager : MonoBehaviour
     public static DeliveryManager Instance { get; private set; }
 
     [SerializeField] private RecipeListSO m_recipeListSO;
+
     private List<RecipeSO> m_waitingRecipeSOList;
     private float m_spawnRecipeTimer;
     private float m_spawnRecipeTimerMax = 4f;
@@ -75,7 +76,7 @@ public class DeliveryManager : MonoBehaviour
                 }
                 if(plateContentsMatchesRecipe)
                 {
-                    //`Player delivered the correct recipe!
+                    // Player delivered the correct recipe!
                     m_successfulRecipeAmount++;
                     
                     m_waitingRecipeSOList.RemoveAt(i);

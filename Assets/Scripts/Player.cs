@@ -56,6 +56,8 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
     private void Update()
     {
+        if (GameManager.Instance.IsGameOver()) return;
+
         HandleMovement();
         HandleInteractions();
     }

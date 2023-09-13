@@ -2,10 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameOverUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI m_recipesDeliveredText;
+    [SerializeField] private Button m_restartButton;
+    [SerializeField] private Button m_mainMenuButton;
+
+    private void Awake()
+    {
+        m_restartButton.onClick.AddListener(() => { Loader.Load(Loader.Scene.GameScene); });
+        m_mainMenuButton.onClick.AddListener(() => { Loader.Load(Loader.Scene.MainMenuScene); });
+    }
 
     private void Start()
     {
@@ -28,6 +37,8 @@ public class GameOverUI : MonoBehaviour
     private void Show()
     {
         gameObject.SetActive(true);
+
+        m_restartButton.Select();
     }
 
     private void Hide()
