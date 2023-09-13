@@ -1,14 +1,27 @@
 # CaosCulinario
-Project taught by the CodeMonkey channel with a focus on modularity and clean code
+Project taught by the CodeMonkey channel with a focus on modularity and clean code.
 
 ### Image
-![alt text](https://github.com/LucasFrazaoDev/CaosCulinario/blob/master/Assets/Media/ScreenshotsProj00.png)
+![Game Picture](https://github.com/LucasFrazaoDev/CaosCulinario/blob/master/Assets/Media/ScreenshotsProj00.png)
 
-### Demo
-![alt text](https://github.com/LucasFrazaoDev/CaosCulinario/blob/master/Assets/Media/CaosCulinarioGif.mp4)
+### In-game play
+![In-game gif from the player delivering the food](https://github.com/LucasFrazaoDev/CaosCulinario/blob/master/Assets/Media/CaosCulinarioGif.gif)
 
 ### Development
 This project was developed using the C# programming language and the Unity development platform. It was made for learning clean code, modularity, good practices and some SOLID principles. And also code refactoring practice.
+
+## Content learned
+### Scriptable Objects were used to store and read data, increasing efficiency in controlling information.
+
+![Game Picture](https://github.com/LucasFrazaoDev/CaosCulinario/blob/master/Assets/Media/ScreenshotsProj01.png)
+
+### Learning about using events for code decoupling.
+
+![Game Picture](https://github.com/LucasFrazaoDev/CaosCulinario/blob/master/Assets/Media/ScreenshotsProj04.png)
+
+### Signing methods for player input as well as unsigning them to avoid extra memory allocation when the player restarts without ending the game.
+
+![Game Picture](https://github.com/LucasFrazaoDev/CaosCulinario/blob/master/Assets/Media/ScreenshotsProj02.png)
 
 ### License
 This project is licensed under the MIT license. See the LICENSE file for more information.
