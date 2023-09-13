@@ -29,24 +29,38 @@ This project is licensed under the MIT license. See the LICENSE file for more in
 ### Credits
 Credits and thanks to Hugo Cardoso (Code Monkey) for the excellent content available for free on Youtube.
 
-[CodeMonkey Channel](https://www.youtube.com/watch?v=AmGSEH7QcDg&t=1s)
+[Code Monkey Free Course](https://www.youtube.com/watch?v=AmGSEH7QcDg&t=1s)
 ___________________________________________________________________________________________________________________________________________
 
 # CaosCulinario
-Projeto ensinado no canal do CodeMonkey com foco em código limpo e modularidade
+Projeto ministrado pelo canal CodeMonkey com foco em modularidade e código limpo.
 
 ### Imagem
-![alt text]()
+![Foto do jogo](https://github.com/LucasFrazaoDev/CaosCulinario/blob/master/Assets/Media/ScreenshotsProj00.png)
 
-### Demo
-![alt text]()
+### Gameplay
+![Gif do jogador entregando a comida no jogo](https://github.com/LucasFrazaoDev/CaosCulinario/blob/master/Assets/Media/CaosCulinarioGif.gif)
 
-### Como jogar
-Para jogar o Pong, basta [baixar](https://lordfrazao.itch.io/pong-mobile) o arquivo APK no seu dispositivo móvel e instalá-lo. Após a instalação, basta abrir o jogo e escolher a dificuldade desejada.
+## Desenvolvimento
+Este projeto foi desenvolvido utilizando a linguagem de programação C# e a plataforma de desenvolvimento Unity. Foi feito para aprender código limpo, modularidade, boas práticas e alguns princípios SOLID. E também prática de refatoração de código.
 
-### Desenvolvimento
-Este jogo foi desenvolvido utilizando a linguagem de programação C# e a plataforma de desenvolvimento Unity. Além disso, foram utilizadas bibliotecas e recursos nativos do Android para a criação da interface do usuário.
+## Conteúdo aprendido
+### Aprendizado sobre o uso de eventos para desacoplamento de código.
+
+![Foto do jogo](https://github.com/LucasFrazaoDev/CaosCulinario/blob/master/Assets/Media/ScreenshotsProj04.png)
+
+### Objetos Scriptáveis foram utilizados para armazenar e ler dados, aumentando a eficiência no controle das informações.
+
+![Foto do jogo](https://github.com/LucasFrazaoDev/CaosCulinario/blob/master/Assets/Media/ScreenshotsProj01.png)
+
+### Métodos de assinatura para entrada do jogador, bem como cancelamento de assinatura para evitar alocação extra de memória quando o jogador reinicia sem terminar o jogo.
+
+![Foto do jogo](https://github.com/LucasFrazaoDev/CaosCulinario/blob/master/Assets/Media/ScreenshotsProj02.png)
 
 ### Licença
-Este projeto está licenciado sob a licença MIT. Consulte o arquivo LICENSE para obter mais informações.
+Este projeto está licenciado sob a licença do MIT. Consulte o arquivo LICENSE para obter mais informações.
 
+### Créditos
+Créditos e agradecimentos ao Hugo Cardoso (Code Monkey) pelo excelente conteúdo disponibilizado gratuitamente no Youtube.
+
+[Curso gratuito do Code Monkey](https://www.youtube.com/watch?v=AmGSEH7QcDg&t=1s)
